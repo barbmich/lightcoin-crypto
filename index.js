@@ -33,11 +33,11 @@ class Deposit extends Transaction {
 class Withdrawal extends Transaction {
 
   get value() {
-    return this.amount * 1;
+    return this.amount * -1;
   }
 
   commit() {
-    this.account.balance -= this.value;
+    this.account.balance = this.value;
     console.log(`Transaction: Withdrew $${this.value}`);
     console.log(`New Balance: $${this.account.balance}`);
   }
